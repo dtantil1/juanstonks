@@ -21,6 +21,10 @@ const response = await fetch("https://eodhistoricaldata.com/api/eod/"+stock+
 let data = await response.json();
 
 
+const response2 = await fetch("https://finnhub.io/api/v1/stock/profile2?symbol="+stock.toUpperCase()+"&token=c9ei572ad3iff7bjsb80");
+let data2 = await response2.json();
+console.log(data2);
+
 
 let close_price = [];
 let adjusted_close = [];
@@ -46,9 +50,12 @@ let date = [];
     	table_fill = table_fill + "<tr><td>"+date[index]+"</td><td>"+close_price[index]+"</td><td>"+adjusted_close[index]+"</td>";
     }
     document.getElementById("main-content").innerHTML = table_html+table_fill+table_close;
-    document.getElementById("averages").innerHTML = stock +"<br>"+ date1 +" to "+ date2+
+    document.getElementById("averages").innerHTML = "<br>" +data2.name +" ($"+stock.toUpperCase()+")<br>"+ date1 +" to "+ date2+
     												"<br>Average closing price: $"+average(close_price).toFixed(2)+"<br>"+
     												"Average <b>adjusted</b> closing price: $"+average(adjusted_close).toFixed(2);
+
+
+    document.getElementById("logo").innerHTML = "<br><img class='mr-3' src="+data2.logo+" width=64 height=64 alt='Logo'>"												
 	
 }
 
