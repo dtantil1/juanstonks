@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Juan's Fancy Stock Averager</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<style>
+		body{
+			background-color: black;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid, text-center">
+  <h2>Juan's Stonks</h2>
+  <p>Input stock ticker and a date range <br> 
+  	<!--<span style="color:orangered;">(Trial version only 1-year of historical data available)</span></p> -->
+  <form  novalidate>
+  	<input id="stock" placeholder="TSLA" type="text" value="TSLA" required />
+  	<br>Date range<br>
+  	<input id="day1" type="date" value="2022-03-17" required />
+  	<input id="day2" type="date" value="2022-04-18" required />
+  	<button onclick="getStockData(); return false" class="btn btn-outline-primary">Submit</button>
+  </form>
+  <div id="averages"></div>
+  <div id="main-content"></div>
+  
+
+
+
+
+</div>
+
+
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
